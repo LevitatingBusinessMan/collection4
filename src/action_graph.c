@@ -203,7 +203,7 @@ int action_graph (void) /* {{{ */
   }
 
   rrd_clear_error ();
-  data.info = rrd_graph_v (argc, argv);
+  data.info = rrd_graph_v (argc, (const char **) argv);
   if ((data.info == NULL) || rrd_test_error ())
   {
     printf ("Content-Type: text/plain\n\n");

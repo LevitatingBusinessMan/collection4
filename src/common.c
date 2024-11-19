@@ -83,7 +83,7 @@ int ds_list_from_rrd_file (char *file, /* {{{ */
   char **dses = NULL;
   size_t dses_num = 0;
 
-  info = rrd_info (rrd_argc, rrd_argv);
+  info = rrd_info (rrd_argc, (const char **) rrd_argv);
   if (info == NULL)
   {
     printf ("%s: rrd_info (%s) failed.\n", __func__, file);

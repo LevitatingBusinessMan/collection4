@@ -84,7 +84,6 @@ int action_instance_data_json (void) /* {{{ */
   dp_time_t dp_end = { 0, 0 };
   dp_time_t dp_resolution = { 0, 0 };
 
-  yajl_gen_config handler_config;
   yajl_gen handler;
 
   time_t expires;
@@ -113,14 +112,7 @@ int action_instance_data_json (void) /* {{{ */
   dp_resolution.tv_sec = (tt_end - tt_begin) / 324;
   param_get_resolution (&dp_resolution);
 
-  memset (&handler_config, 0, sizeof (handler_config));
-  handler_config.beautify = 0;
-  handler_config.indentString = "  ";
-
-  handler = yajl_gen_alloc2 (write_callback,
-      &handler_config,
-      /* alloc functions = */ NULL,
-      /* context = */ NULL);
+  handler = yajl_gen_alloc (NULL);
   if (handler == NULL)
     return (-1);
 

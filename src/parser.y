@@ -24,6 +24,7 @@
 
 static char *unquote (const char *orig);
 static int yyerror (const char *s);
+int yylex (void);
 
 /* Lexer variables */
 extern int yylineno;

@@ -71,21 +71,13 @@ static int print_all_hosts (yajl_gen handler) /* {{{ */
 
 int action_list_hosts_json (void) /* {{{ */
 {
-  yajl_gen_config handler_config;
   yajl_gen handler;
 
   time_t now;
   char time_buffer[128];
   int status;
 
-  memset (&handler_config, 0, sizeof (handler_config));
-  handler_config.beautify = 1;
-  handler_config.indentString = "  ";
-
-  handler = yajl_gen_alloc2 (write_callback,
-      &handler_config,
-      /* alloc functions = */ NULL,
-      /* context = */ NULL);
+  handler = yajl_gen_alloc (NULL);
   if (handler == NULL)
     return (-1);
 

@@ -11,7 +11,7 @@ AM_YFLAGS = -d
 
 BUILT_SOURCES = parser.h
 
-pkglib_PROGRAMS = collection.fcgi
+pkglibexec_PROGRAMS = collection.fcgi
 
 collection_fcgi_SOURCES = main.c \
 			  oconfig.c oconfig.h aux_types.h scanner.l parser.y \

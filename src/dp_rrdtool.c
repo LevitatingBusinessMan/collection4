@@ -224,7 +224,7 @@ static int get_ident_ds_names (void *priv, graph_ident_t *ident,
   if (status != 0)
     return (status);
 
-  info = rrd_info (rrd_argc, rrd_argv);
+  info = rrd_info (rrd_argc, (const char **) rrd_argv);
   if (info == NULL)
   {
     fprintf (stderr, "%s: rrd_info (%s) failed.\n", __func__, file);
